@@ -1,0 +1,28 @@
+# Environment and configuration
+config.php
+.env
+.env.local
+
+# Uploads folder (optional - include if you want to share uploaded files)
+uploads/
+!uploads/.gitkeep
+
+# Dependencies
+vendor/
+node_modules/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# System files
+.htaccess (optional)
+
+# Logs and temporary files
+*.log
+*.tmp

@@ -1,6 +1,6 @@
 # Online Business Permit and Licensing System
 
-A comprehensive web-based system for managing business permit applications, renewals, and tracking with SMS notifications.
+A comprehensive web-based system for managing business permit applications, renewals, and tracking with email notifications.
 
 ## Features
 
@@ -8,7 +8,7 @@ A comprehensive web-based system for managing business permit applications, rene
 - **Business Registration**: Register new businesses with complete information
 - **Permit Applications**: Apply for new, renewal, or amendment permits
 - **Real-time Tracking**: Track application status online
-- **SMS Notifications**: Automated SMS updates at each application stage
+- **Email Notifications**: Automated email updates at each application stage
 - **Role-based Access**: Admin, Staff, and Applicant roles with appropriate permissions
 - **Dashboard Analytics**: Charts and statistics for system monitoring
 
@@ -32,7 +32,6 @@ A comprehensive web-based system for managing business permit applications, rene
 - MySQL 5.7 or higher
 - Apache/Nginx web server
 - cURL extension enabled
-- Semaphore SMS API account (for SMS notifications)
 
 ### Setup Instructions
 
@@ -44,8 +43,8 @@ A comprehensive web-based system for managing business permit applications, rene
 
 2. **Database Setup**
    ```bash
-   # Import the database schema
-   mysql -u root -p < database.sql
+   # Import the database schema from db folder
+   mysql -u root -p business_permit_system < db/database.sql
    ```
 
 3. **Configuration**
@@ -83,6 +82,13 @@ OnlineBusinessPermit/
 │   │   └── style.css      # Main stylesheet
 │   └── js/
 │       └── main.js        # JavaScript functions
+├── db/                     # Database files
+│   ├── database.sql       # Database schema
+│   └── MIGRATION_SCRIPT.sql  # Migration scripts
+├── docs/                   # Documentation
+│   ├── IMPLEMENTATION_SUMMARY.md
+│   ├── QUICK_REFERENCE.md
+│   └── CLEANUP_SUMMARY.md
 ├── includes/               # PHP classes and utilities
 │   ├── auth.php           # Authentication system
 │   ├── permit.php         # Permit management
@@ -100,10 +106,10 @@ OnlineBusinessPermit/
 │   ├── renewals.php
 │   └── tracking.php
 ├── uploads/                # File uploads directory
-├── config.php             # Configuration file
-├── database.sql           # Database schema
+├── config.php             # Configuration file (not in repo)
 ├── index.php              # Main router
-└── README.md              # This file
+├── README.md              # Main documentation
+└── .gitignore             # Git ignore file
 ```
 
 ## Database Schema
@@ -116,7 +122,7 @@ The system uses the following main tables:
 - **permit_requirements**: Document requirements tracking
 - **payments**: Payment records and status
 - **renewals**: Permit renewal applications
-- **sms_logs**: SMS notification history
+- **notification_logs**: Email notification history
 - **audit_logs**: System activity logging
 - **system_settings**: Configuration settings
 
@@ -216,9 +222,15 @@ This project is provided as-is for educational and development purposes.
 
 ## Version History
 
+- **v2.0.0**: Email notifications upgrade & code cleanup
+  - Replaced SMS with email notifications
+  - Removed unused code and dependencies
+  - Reorganized folder structure (db/, docs/)
+  - Added comprehensive documentation
+  - Enhanced security and performance
+
 - **v1.0.0**: Initial release with core functionality
   - User authentication and role management
   - Business registration and permit applications
-  - SMS notifications integration
   - Admin dashboard with analytics
   - Real-time tracking system
